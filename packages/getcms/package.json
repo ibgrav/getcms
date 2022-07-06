@@ -2,6 +2,22 @@
   "name": "getcms",
   "version": "0.0.1",
   "license": "MIT",
+  "author": "Isaac Graves",
+  "repository": {
+    "url": "https://github.com/ibgrav/getcms"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "scripts": {
     "dev": "netlify dev -c \"vite dev\"",
     "build": "vite build && tsc -p tsconfig.build.json"
