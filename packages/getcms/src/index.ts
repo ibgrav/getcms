@@ -1,14 +1,20 @@
 import { render } from "./render";
 import { authenticate } from "./authenticate";
 
-const url = new URL(location.href);
-const access_token = url.searchParams.get("access_token");
-
-if (access_token) {
-  localStorage.setItem("access_token", access_token);
-  location.replace("/");
+export interface GetCMSConfig {
+  repository_url: string;
 }
 
-authenticate().then(() => {
-  render();
-});
+export function defineGetCMS(config: GetCMSConfig) {
+  authenticate().then((user) => {
+    if (user.id) {
+      render({ user, config });
+    }
+  });
+}
+
+if (import.meta.env.DEV) {
+  defineGetCMS({
+    repository_url: "https://github.com/ibgrav/getcms",
+  });
+}
