@@ -4,7 +4,8 @@ import fetch from "node-fetch";
 const CLIENT_ID = process.env.GITHUB_CLIENT_ID || "";
 const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || "";
 
-const createRedirectUri = (target: string) => `${process.env.URL}/github/callback?target=${encodeURIComponent(target)}`;
+const createRedirectUri = (target: string) =>
+  `https://getcms.netlify.app/github/callback?target=${encodeURIComponent(target)}`;
 
 const loginHandler = async (event: HandlerEvent): Promise<HandlerResponse> => {
   const target = event.queryStringParameters?.target || "/";

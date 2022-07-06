@@ -4,7 +4,7 @@ export async function authenticate() {
   try {
     const token = localStorage.getItem("access_token");
 
-    console.log({ token });
+    if (!token) throw new Error("missing access_token");
 
     // const kit = new Octokit({ auth: token });
 
@@ -12,5 +12,6 @@ export async function authenticate() {
     // console.log({ kit: data });
   } catch (e) {
     console.error(e);
+    location.replace(`https://getcms.netlify.app/github/login?target=${location.href}`);
   }
 }
