@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User } from "src/authenticate";
+import { User } from "../authenticate";
 import { GetCMSConfig } from "..";
 
 export interface AppProps {

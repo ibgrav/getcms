@@ -1,5 +1,3 @@
-// import { Octokit } from "octokit";
-
 import { api } from "./api";
 
 export interface User {

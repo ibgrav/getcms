@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "netlify dev -c \"vite dev\"",
-    "build": "vite build"
+    "build": "vite build && tsc -p tsconfig.build.json"
   },
   "peerDependencies": {
     "react": ">= 18.2.0",
